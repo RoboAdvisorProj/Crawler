@@ -1,6 +1,7 @@
 from selenium import webdriver
 from Utils import LogManager
 from Setting import DefineManager
+from Tests import Runner
 
 class WebCrawler:
     def __init__(self):
