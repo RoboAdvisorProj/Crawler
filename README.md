@@ -33,6 +33,7 @@ And also install python modules.
 ```
 sudo pip3.5 install selenium
 sudo pip3.5 install logging
+sudo pip3.5 install pytest
 ```
 
 And repeat
