@@ -20,13 +20,24 @@ class WebCrawler(object):
     def GetDriverStatus(self):
         return self.driverStatus
 
+    def SetDriverUrl(self, url):
+        LogManager.PrintLogMessage("WebCrawler", "SetDriverUrl", "moving on " + url, DefineManager.LOG_LEVEL_INFO)
+        try:
+            self.driver.get(url)
+            self.driver.implicitly_wait(3)
+            return True
+        except:
+            LogManager.PrintLogMessage("WebCrawler", "SetDriverUrl", "connection failed " + url, DefineManager.LOG_LEVEL_ERROR)
+            return False
+
+
     def TakePicture(self, url):
         if self.driverStatus == False:
             LogManager.PrintLogMessage("WebCrawler", "TakePicture", "chrome browser not working", DefineManager.LOG_LEVEL_WARN)
             return False
+        if self.SetDriverUrl(url) == False:
+            return False
         LogManager.PrintLogMessage("WebCrawler", "TakePicture", "taking shot screen url: " + url, DefineManager.LOG_LEVEL_INFO)
-        self.driver.get(url)
-        self.driver.implicitly_wait(3)
         self.driver.get_screenshot_as_file("../Src/test.png")
         return True
 
