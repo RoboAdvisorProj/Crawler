@@ -20,6 +20,8 @@ A step by step series of examples that tell you have to get a development env ru
 
 Say what the step will be
 
+[How to setup pytest](https://stackoverflow.com/questions/6397063/how-do-i-configure-pycharm-to-run-py-test-tests)
+
 #### MacOS
 
 In terminal install some package.
