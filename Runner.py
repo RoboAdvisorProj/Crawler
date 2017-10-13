@@ -2,7 +2,7 @@ from selenium import webdriver
 from Utils import LogManager
 from Setting import DefineManager
 
-class WebCrawler:
+class WebCrawler(object):
     def __init__(self):
         LogManager.PrintLogMessage("WebCrawler", "__init__", "open chrome browser", DefineManager.LOG_LEVEL_INFO)
         try:
@@ -26,6 +26,3 @@ class WebCrawler:
 
     def __del__(self):
         return
-
-crawler = WebCrawler()
-crawler.CloseDriver()
