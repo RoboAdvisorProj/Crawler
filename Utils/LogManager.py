@@ -6,7 +6,10 @@ def PrintLogMessage(fileName = "Logger", methodName = "PrintLogMessage", message
     logger = logging.getLogger()
 
     nowDateInfo = datetime.datetime.now()
-    loggingTime = nowDateInfo.strftime('%H:%M:%S')
+    try:
+        loggingTime = nowDateInfo.strftime('%H:%M:%S')
+    except:
+        loggingTime = "??:??:??"
 
     logMessage = " " + loggingTime + " [" + fileName + "] <" + methodName + "> (" + message + ")"
     if logLevel == DefineManager.LOG_LEVEL_INFO:
