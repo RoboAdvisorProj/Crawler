@@ -1,16 +1,31 @@
 from selenium import webdriver
 from Utils import LogManager
 from Setting import DefineManager
-from Tests import Runner
 
 class WebCrawler:
     def __init__(self):
-        LogManager.PrintLogMessage("WebCrawler", "__init__", "open chrome brower", DefineManager.LOG_LEVEL_INFO)
-        self.driver = webdriver.Chrome()
+        LogManager.PrintLogMessage("WebCrawler", "__init__", "open chrome browser", DefineManager.LOG_LEVEL_INFO)
+        try:
+            self.driver = webdriver.Chrome()
+            self.driverStatus = True
+        except:
+            LogManager.PrintLogMessage("WebCrawler", "__init__", "cannot open chrome browser", DefineManager.LOG_LEVEL_ERROR)
+            self.driverStatus = False
+
+    def GetDriverStatus(self):
+        return self.driverStatus
+
+    def CloseDriver(self):
+        LogManager.PrintLogMessage("WebCrawler", "CloseDriver", "close chrome browser", DefineManager.LOG_LEVEL_INFO)
+        try:
+            self.driver.quit()
+            self.driverStatus = False
+        except:
+            LogManager.PrintLogMessage("WebCrawler", "CloseDriver", "cannot close chrome browser", DefineManager.LOG_LEVEL_ERROR)
+            self.driverStatus = True
 
     def __del__(self):
-        LogManager.PrintLogMessage("WebCrawler", "__del__", "close chrome brower", DefineManager.LOG_LEVEL_INFO)
-        self.driver.quit()
-
+        return
 
 crawler = WebCrawler()
+crawler.CloseDriver()
