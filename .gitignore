@@ -345,3 +345,4 @@ venv.bak/
 .mypy_cache/
 
 # End of https://www.gitignore.io/api/python,intellij,intellij+iml,intellij+all
+Src/test.png
