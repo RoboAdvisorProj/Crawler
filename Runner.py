@@ -17,10 +17,13 @@ class WebCrawler(object):
 
     def TakePicture(self, url):
         if self.driverStatus == False:
+            LogManager.PrintLogMessage("WebCrawler", "TakePicture", "chrome browser not working", DefineManager.LOG_LEVEL_WARN)
             return False
+        LogManager.PrintLogMessage("WebCrawler", "TakePicture", "taking shot screen url: " + url, DefineManager.LOG_LEVEL_INFO)
         self.driver.get(url)
         self.driver.implicitly_wait(3)
-        self.driver.save_screenshot("Src/" + url + ".png")
+        self.driver.get_screenshot_as_file("../Src/test.png")
+        return True
 
     def CloseDriver(self):
         LogManager.PrintLogMessage("WebCrawler", "CloseDriver", "close chrome browser", DefineManager.LOG_LEVEL_INFO)
