@@ -50,5 +50,8 @@ class WebCrawler(object):
             LogManager.PrintLogMessage("WebCrawler", "CloseDriver", "cannot close chrome browser", DefineManager.LOG_LEVEL_ERROR)
             self.driverStatus = True
 
+    def GetDriver(self):
+        return self.driver
+
     def __del__(self):
         return

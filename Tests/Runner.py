@@ -1,5 +1,6 @@
 import pytest
 import Runner
+from . import Weather
 
 @pytest.fixture
 def webCrawler():
@@ -14,3 +15,7 @@ def test_is_chrome_close(webCrawler):
 
 def test_take_screen_shot(webCrawler):
     assert webCrawler.TakePicture("http://openweathermap.org/city/1835848") == True
+
+def test_get_today_weather(webCrawler):
+    todayWeather = Weather.GetTodayWeather(webCrawler)
+    assert todayWeather != None
