@@ -1,4 +1,10 @@
 from selenium import webdriver
 
-driver = webdriver.Chrome()
-driver.quit()
+class WebCrawler:
+    def __init__(self):
+        self.driver = webdriver.Chrome()
+
+    def __del__(self):
+        self.driver.quit()
+
+crawler = WebCrawler()
