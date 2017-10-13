@@ -20,8 +20,18 @@ A step by step series of examples that tell you have to get a development env ru
 
 Say what the step will be
 
+#### MacOS
+
+In terminal install some package.
+
 ```
-Give the example
+brew install chromedriver
+```
+
+And also install python modules.
+
+```
+sudo pip3.5 install selenium
 ```
 
 And repeat
