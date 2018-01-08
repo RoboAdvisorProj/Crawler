@@ -1,15 +1,16 @@
 from selenium import webdriver
 from Utils import LogManager
 from Setting import DefineManager
+from Tests import Weather
 
 class WebCrawler(object):
     def __init__(self):
         LogManager.PrintLogMessage("WebCrawler", "__init__", "open chrome browser", DefineManager.LOG_LEVEL_INFO)
         try:
             options = webdriver.ChromeOptions()
-            options.add_argument('headless')
+            # options.add_argument('headless')
             options.add_argument('window-size=1920x1080')
-            options.add_argument("disable-gpu")
+            # options.add_argument("disable-gpu")
 
             self.driver = webdriver.Chrome(chrome_options=options)
             self.driverStatus = True

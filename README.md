@@ -50,6 +50,17 @@ Setup build conf using `py.test`.
 
 The test target is `Tests/Runner.py`
 
+
+## Running the original 
+
+Just add code in `./Runner.py`
+
+```
+webCrawler = WebCrawler()
+Weather.GetTodayWeather(webCrawler)
+webCrawler.CloseDriver()
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
